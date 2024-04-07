@@ -86,7 +86,7 @@ def compute_max_len(items: list[any]) -> int:
     return max_long
 
 
-def test():
+def main():
     pat_neg = '^((?!result).)+$'
     pat_pos = '^((?=result).)+$'
     contents = [
@@ -112,4 +112,5 @@ def test():
         print(f'{content:<50} {result}')
 
 
-test()
+if __name__ == '__main__':
+    main()
