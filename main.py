@@ -36,14 +36,11 @@ def phone_number_check():
     for numero in numeros_de_telephone:
         test_re = re.match(tel_pattern, numero)
         if test_re:
-            # print(
-            #     f"{Bcolors.OKGREEN}Le numéro {numero:<{max_long}} est valide{Bcolors.ENDC}")
-            print(f"{Fore.GREEN}Le numéro {numero:<{max_long}} est valide")
-        else:
-            # print(
-            #     f"{Bcolors.FAIL}Le numéro {numero:<{max_long}} est invalide{Bcolors.ENDC}")
             print(
-                f"{Fore.RED}Le numéro {numero:<{max_long}} est invalide")
+                f"{Bcolors.OKGREEN}Le numéro {numero:<{max_long}} est valide{Bcolors.ENDC}")
+        else:
+            print(
+                f"{Bcolors.FAIL}Le numéro {numero:<{max_long}} est invalide{Bcolors.ENDC}")
 
 
 def email_check():
@@ -118,4 +115,7 @@ def main():
 if __name__ == '__main__':
     init(autoreset=True)
     main()
-    
+    print("\n")
+    email_check()
+    print("\n")
+    phone_number_check()
