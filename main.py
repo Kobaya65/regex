@@ -1,5 +1,5 @@
 import re
-
+from colorama import init, Fore
 
 class Bcolors:
     # ANSI escape codes
@@ -36,11 +36,14 @@ def phone_number_check():
     for numero in numeros_de_telephone:
         test_re = re.match(tel_pattern, numero)
         if test_re:
-            print(
-                f"{Bcolors.OKGREEN}Le numéro {numero:<{max_long}} est valide{Bcolors.ENDC}")
+            # print(
+            #     f"{Bcolors.OKGREEN}Le numéro {numero:<{max_long}} est valide{Bcolors.ENDC}")
+            print(f"{Fore.GREEN}Le numéro {numero:<{max_long}} est valide")
         else:
+            # print(
+            #     f"{Bcolors.FAIL}Le numéro {numero:<{max_long}} est invalide{Bcolors.ENDC}")
             print(
-                f"{Bcolors.FAIL}Le numéro {numero:<{max_long}} est invalide{Bcolors.ENDC}")
+                f"{Fore.RED}Le numéro {numero:<{max_long}} est invalide")
 
 
 def email_check():
@@ -67,10 +70,10 @@ def email_check():
         test_re = re.match(email_pattern, email)
         if test_re:
             print(
-                f"{Bcolors.OKGREEN}L'adresse {email:<{max_long}} est valide{Bcolors.ENDC}")
+                f"{Fore.GREEN}L'adresse {email:<{max_long}} est valide")
         else:
             print(
-                f"{Bcolors.FAIL}L'adresse {email:<{max_long}} est invalide{Bcolors.ENDC}")
+                f"{Fore.RED}L'adresse {email:<{max_long}} est invalide")
 
 
 def compute_max_len(items: list[any]) -> int:
@@ -113,4 +116,6 @@ def main():
 
 
 if __name__ == '__main__':
+    init(autoreset=True)
     main()
+    
